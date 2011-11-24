@@ -1,0 +1,99 @@
+@import "compass/css3";
+
+$text-color: #808080;
+
+html, body {
+    background-color: #E7E7E7;
+}
+
+p {
+    color: $text-color;
+    font-size: 11px;
+    font-weight: bold;
+    margin: 25px 0 16px 40px;
+}
+
+::-moz-selection { background: #9E9E9E; color: #fff; text-shadow: none; }
+::selection { background: #9E9E9E; color: #fff; text-shadow: none; }
+
+.au_title_bar {
+    @include background(image-url("bkg_title_bar_graffiti.png"));
+    background-color: #464646;
+    @include box-shadow(#CFCFCF 0px 2px 3px);
+
+    border: {
+        top: {
+            color: #333333;
+        }
+        bottom: {
+            color: #2B2B2B;
+        }
+    }
+
+    h1 {
+        color: #d9d9d9;
+        font-weight: bold;
+    }
+
+    h2 {
+        color: #bfbfbf;
+        font-weight: bold;
+    }
+}
+
+.au_btn_lite {
+    @include background(image-url("bkg_button_lite_graffiti.png"));
+    background-color: #EAEAEA;
+    border: 1px solid #BFBFBF;
+    color: #737373;
+}
+
+.au_btn_lite.hover {
+    @include background(image-url("bkg_button_lite_hover_graffiti.png"));
+}
+
+.au_btn_lite.pressed {
+    @include background(#EAEAEA);
+}
+
+.au_btn_dark {
+    @include background(image-url("bkg_button_dark_graffiti.png"));
+    background-color: #575757;
+    border: 1px solid #404040;
+    color: #edf8fa;
+}
+
+.au_btn_dark.hover {
+    @include background(image-url("bkg_button_dark_hover_graffiti.png"));
+}
+
+.au_btn_dark.pressed {
+    @include background(#4C4C4C);
+}
+
+input.au_text {
+    background-color: #F5F5F5;
+    border: 1px solid #BABABA;
+    @include box-shadow(#BABABA 0.5px 0.4px 5px inset);
+    color: $text-color;
+}
+
+div.au_checkbox {
+    @include background(image-url('checkbox_graffiti.png') no-repeat);
+    height: 15px;
+    width: 15px;
+}
+
+div.au_checkbox.au_marked {
+    @include background(image-url('checkbox_marked_graffiti.png') no-repeat);
+}
+
+div.au_radio_button {
+    @include background(image-url('radio_button_graffiti.png') no-repeat);
+    height: 13px;
+    width: 14px;
+}
+
+div.au_radio_button.au_marked {
+    @include background(image-url('radio_button_marked_graffiti.png') no-repeat);
+}

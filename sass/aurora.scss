@@ -1,0 +1,71 @@
+@import "compass/css3";
+
+html, body {
+    font-family: Arial, sans-serif;
+    overflow: auto;
+}
+
+$no-border: 0 none;
+.au_title_bar {
+    $border-width: 1px;
+    $border-style: solid;
+    border: {
+        style: $border-style;
+        width: $border-width;
+        left: $no-border;
+        right: $no-border;
+    }
+    height: 35px;
+    line-height: 35px;
+
+    h1 {
+        display: inline;
+        font-size: 36px;
+        margin: 0 0 0 40px;
+    }
+    h2 {
+        display: inline;
+        font-size: 9px;
+        margin: 0 0 0 5px;
+    }
+}
+
+@mixin aurora_button {
+    border: $no-border;
+    @include border-radius(4px);
+    padding: 4px 10px;
+    position: relative;
+
+}
+
+.au_btn_lite, .au_btn_dark {
+    @include aurora_button;
+}
+
+div.content_widgets {
+    clear: both;
+    overflow: hidden;
+    width: 100%;
+
+    > div {
+        float: left;
+        margin: 25px 0 16px 40px;
+        width: 300px;
+
+        p {
+            margin-left: 0;
+        }
+    }
+}
+
+input.au_text {
+    @include border-radius(5px);
+    height: 24px;
+    padding: 0 6px;
+    width:274px
+}
+
+div.au_checkbox, div.au_radio_button {
+    float: left;
+    margin-right: 10px;
+}

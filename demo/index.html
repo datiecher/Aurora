@@ -1,0 +1,150 @@
+<!doctype html>
+<!--[if lt IE 7]> <html class="no-js ie6 oldie" lang="en"> <![endif]-->
+<!--[if IE 7]>    <html class="no-js ie7 oldie" lang="en"> <![endif]-->
+<!--[if IE 8]>    <html class="no-js ie8 oldie" lang="en"> <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en"> <!--<![endif]-->
+<head>
+	<meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+
+	<title>Aurora</title>
+	<meta name="description" content="Aurora">
+	<meta name="author" content="Evolutive Web Development">
+
+	<meta name="viewport" content="width=device-width,initial-scale=1">
+
+	<script src="/demo/js/modernizr-2.0.6.min.js"></script>
+    
+    <link rel="stylesheet" href="../stylesheets/reset.css">
+    <link rel="stylesheet" href="../stylesheets/aurora.css">
+    <link id="theme" rel="stylesheet" href="../stylesheets/graffiti.css">
+    <link rel="stylesheet" href="../stylesheets/demo.css">
+</head>
+<body>
+
+    <div id="container">
+        <div>
+            <p>Title Bar</p>
+            <div class="au_title_bar"><h1>Aurora</h1><h2>0.1 - Boreal</h2></div>
+        </div>
+        <div>
+            <p>Tool Bar</p>
+            <div class="tool_bar">
+                <nav>
+                    <a href="#" title="heart">heart</a>
+                    <a href="#" title="star">star</a>
+                    <a href="#" title="idontknow">idontknow</a>
+                    <a href="#" title="configurations">configurations</a>
+                </nav>
+                <input type="search" />
+            </div>
+        </div>
+        <div class="content_widgets">
+            <div>
+                <p>Buttons</p>
+                <button class="aurora au_btn_lite" type="button">Cancel</button>
+                <button class="aurora au_btn_lite pressed" type="button">Cancel</button>
+                <button class="aurora au_btn_dark" type="button">Continue</button>
+                <button class="aurora au_btn_dark pressed" type="button">Continue</button>
+            </div>
+            <div>
+                <p>Input field</p>
+                <input class="au_text" type="text" placeholder="Text holder" />
+            </div>
+            <div>
+                <p>Dropdown</p>
+                <select>
+                    <option>default</option>
+                </select>
+            </div>
+        </div>
+        <div class="content_widgets">
+            <div>
+                <p>Checkbox</p>
+                <input id="check1" type="checkbox" class="au_checkbox" />
+                <input id="check2" type="checkbox" class="au_checkbox au_marked" checked="checked" />
+            </div>
+            <div>
+                <p>Radio</p>
+                <input id="radio1" type="radio" name="option" class="au_radio_button" />
+                <input id="radio2" type="radio" name="option" class="au_radio_button au_marked" checked="checked" />
+            </div>
+            <div>
+                <p>Tokens</p>
+                <ul>
+                    <li><a href="#" title="All">All</a></li>
+                    <li><a href="#" title="Important">Important</a></li>
+                    <li><a href="#" title="Personal">Personal</a></li>
+                    <li><a href="#" title="Work">Work</a></li>
+                </ul>
+            </div>
+            <div>
+                <p title="Just another text tooltip...">Tooltip</p>
+            </div>
+        </div>
+        <div class="content_widgets">
+            <div>
+                <p>Slider</p>
+                <input type="range" />
+            </div>
+            <div>
+                <p>Stepper</p>
+                <input type="number" />
+            </div>
+            <div>
+                <p>Segmented Button</p>
+                <ul>
+                    <li><button>One</button></li>
+                    <li><button>Two</button></li>
+                    <li><button>Three</button></li>
+                </ul>
+            </div>
+            <div>
+                <p>Date Picker</p>
+                <input type="date" />
+            </div>
+        </div>
+        <div class="content_widgets">
+            <div>
+                <p>Dialog</p>
+                <div>
+                    <img src="icon_dialog" alt="icon_dialog">
+                    <h1>This is Message Title</h1>
+                    <p>This should be more detailed description of the message. You might want to keep it clear and concise.</p>
+                    <hr />
+                    <button>Cancel</button>
+                    <button>Continue</button>
+                </div>
+                <div>
+                    <ul>
+                        <li><a href="#" title="account">Account</a></li>
+                        <li><a href="#" title="settings">Settings</a></li>
+                        <li><a href="#" title="plans">Plans</a></li>
+                    </ul>
+                    <hr />
+                    <input type="text" placeholder="user" />
+                    <input type="email" placeholder="email" />
+                    <input type="password" placeholder="password" />
+                </div>
+            </div>
+            <div>
+                <p>HUD Window</p>
+                <div>
+                    <div>x</div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="/demo/js/jquery-1.6.2.min.js"></script>
+    <script src="../js/aurora.js"></script>
+    <script src="/demo/js/demo.js"></script>
+    <!--[if lt IE 7 ]>
+    <script src="/demo/js/CFInstall.min.js"></script>
+    <script>window.attachEvent("onload", function() {
+        CFInstall.check({mode:"overlay"})
+    })</script>
+    <![endif]-->
+
+</body>
+</html>
