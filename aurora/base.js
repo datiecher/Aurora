@@ -1,3 +1,27 @@
+/*!
+ * Aurora User Interface Library v0.1
+ * http://auroraui.org/
+ *
+ * Licensed under the MIT license.
+ * http://auroraui.org/license
+ *
+ * Date: Mon Nov 21 21:11:03 2011 -0500
+ */
+(function(window, undefined) {
+    var aurora = {
+
+        // Local scopes document, navigator and location based on the correct global
+        // objects for performance reasons
+        document: window.document,
+        navigator: window.navigator,
+        location: window.location
+    };
+
+    // Defines Aurora core library as an AMD module
+    define('aurora/base', [], function(aurora){ return aurora });
+})(window);
+
+/*
 $(document).ready(function() {
     $('button.aurora').mousedown(function() {
         $(this).addClass('pressed');
@@ -16,7 +40,10 @@ $(document).ready(function() {
     Aurora.init();
 });
 
-var Aurora = {
+(function(root, Aurora) {
+  if (typeof define === 'function' && define.amd) { define(Aurora); }
+  else { root.Aurora = Aurora; }
+})(this, (function(){
     Themes : {
         avaibleThemes: ['graffiti'],
         defaultTheme: 'graffiti',
@@ -91,4 +118,4 @@ var Aurora = {
             });
         }
     }
-}
+}());
