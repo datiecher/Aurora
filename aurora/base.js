@@ -7,19 +7,95 @@
  *
  * Date: Mon Nov 21 21:11:03 2011 -0500
  */
-(function(window, undefined) {
-    var aurora = {
+(function(window, $, undefined) {
 
-        // Local scopes document, navigator and location based on the correct global
-        // objects for performance reasons
-        document: window.document,
-        navigator: window.navigator,
-        location: window.location
+    // Local scopes document, navigator and location based on the correct global
+    // objects for performance reasons
+    var document = window.document,
+        navigator = window.navigator,
+        location = window.location;
+
+    /** Indicates if the constructor of a class should be called or not */
+    var useConstructor;
+
+    /* Shamelessly stolen test from Classy (http://classy.pocoo.org/) */
+    var probe_super = (function(){$super();}).toString().indexOf('$super') > 0;
+    function usesSuper(obj) {
+        return !probe_super || /\B\$super\b/.test(obj.toString());
+    }
+
+    /**
+     * Instantiates a class without calling its constructor (performance!)
+     */
+    function lightInstance(cls) {
+        useConstructor = false;
+        var o = new cls;
+        useConstructor = true;
+        return o;
+    }
+
+    /**
+     * Return the own property of an object
+     */
+    function getOwnProperty(obj, prop) {
+        return Object.prototype.hasOwnProperty.call(obj, prop)
+          ? obj[prop]
+          : undefined;
+    }
+
+    // Initialize base objects
+    var aurora = {};
+    aurora.base = {};
+
+    // Class system based on (http://ejohn.org/blog/simple-javascript-inheritance/)
+    aurora.Class = function(){};
+    aurora.Class.extend = function(properties){
+        var _super = aurora.Class.prototype;
+
+        var prototype = lightInstance(this);
+
+        // Copy all the proporties to tne new prototype
+        for (var name in properties) {
+            var value = getOwnProperty(properties, name);
+            if (value === undefined) {
+                continue;
+            }
+
+            prototype[name] = typeof value === 'function' && usesSuper(value)
+                ? (function(name, fn) {
+                    return function() {
+                        var tempSuper = getOwnProperty(this, '$super');
+                        this.$super = _super[name];
+                        var ret = fn.apply(this, arguments);
+                        this.$super = tempSuper;
+
+                        return ret;
+                    };
+                })(name, value)
+                : value;
+        }
+
+        // Creates constructor for the class
+        var ret = function(){
+            if (useConstructor) {
+                var myThis = window === this ? lightInstance(arguments.callee) : this;
+                if (myThis.$init) {
+                    myThis.$init.apply(myThis, arguments);
+                }
+                return myThis;
+            }
+
+            return;
+        };
+
+        ret.prototype = prototype;
+        ret.constructor = ret;
+
+        return ret;
     };
 
-    // Defines Aurora core library as an AMD module
-    define('aurora/base', [], function(aurora){ return aurora });
-})(window);
+    window.$aui = aurora;
+})(window, jQuery);
 
 /*
 $(document).ready(function() {
@@ -119,3 +195,4 @@ $(document).ready(function() {
         }
     }
 }());
+*/
